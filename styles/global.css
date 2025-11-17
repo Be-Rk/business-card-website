@@ -1,188 +1,249 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* CSS Reset и базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #e8d5c4;
-    min-height: 100vh;
-}
+        :root {
+            --primary-color: #0065B3;
+            --primary-light: #1e88e5;
+            --secondary-color: #FFF7EA;
+            --background-color: #e8d5c4;
+            --text-dark: #1a1a1a;
+            --text-medium: #5a5a5a;
+            --white: #ffffff;
+            --shadow-light: rgba(30, 136, 229, 0.3);
+            --shadow-medium: rgba(30, 136, 229, 0.4);
+            --shadow-dark: rgba(30, 136, 229, 0.5);
+            --border-radius: 0;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --font-size-xs: 0.875rem;
+            --font-size-sm: 1rem;
+            --font-size-md: 1.125rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 2rem;
+            --font-size-xxl: 3.25rem;
+            --font-weight-normal: 400;
+            --font-weight-medium: 600;
+            --font-weight-bold: 700;
+            --font-weight-black: 900;
+            --line-height-normal: 1.5;
+            --line-height-tight: 1.2;
+            --transition: all 0.3s ease;
+        }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 60px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-dark);
+            line-height: var(--line-height-normal);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        /* Шапка сайта */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 10;
+        }
 
-.logo-icon {
-    width: 60px;
-    height: 60px;
-    background: #1565c0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
 
+        .logo-text {
+            font-size: var(--font-size-xxl);
+            font-weight: var(--font-weight-black);
+        }
 
+        /* Навигация */
+        nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
 
-.logo-text {
-    font-size: 42px;
-    font-weight: 900;
-    color: #1a1a1a;
-}
+        nav a {
+            text-decoration: none;
+            color: inherit;
+            font-size: var(--font-size-md);
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+        }
 
-nav {
-    display: flex;
-    gap: 40px;
-}
+        nav a:hover,
+        nav a:focus {
+            color: var(--primary-light);
+            outline: none;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #1a1a1a;
-    font-size: 18px;
-    font-weight: 600;
-    transition: color 0.3s;
-}
+        /* Основное содержимое */
+        main {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-xl) var(--spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-nav a:hover {
-    color: #1e88e5;
-}
+        .hero {
+            position: relative;
+            width: 100%;
+        }
 
-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 80px 60px;
-    gap: 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+        .hero-background {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0.8;
+        }
 
-.content {
-    flex: 1;
-    max-width: 650px;
-}
+        .hero-background svg {
+            width: 500px;
+            height: auto;
+            max-width: 40vw;
+        }
 
-h1 {
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1.2;
-    color: #1a1a1a;
-    margin-bottom: 40px;
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
 
-.description {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #5a5a5a;
-    margin-bottom: 25px;
-}
+        h1 {
+            font-size: var(--font-size-xxl);
+            font-weight: var(--font-weight-black);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-lg);
+        }
 
-.cta-button {
-    display: inline-block;
-    background: #1565c0;
-    color: white;
-    padding: 20px 50px;
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
-    margin-top: 30px;
-    box-shadow: 0 8px 25px rgba(30, 136, 229, 0.4), 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        .hero-description {
+            font-size: var(--font-size-lg);
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+        }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(30, 136, 229, 0.5), 0 6px 15px rgba(0, 0, 0, 0.15);
-}
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            text-decoration: none;
+            margin-top: var(--spacing-md);
+            box-shadow: 0 8px 25px var(--shadow-medium), 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
 
-.image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-}
+        .cta-button:hover,
+        .cta-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px var(--shadow-dark), 0 6px 15px rgba(0, 0, 0, 0.15);
+            outline: none;
+        }
 
-.polaroid {
-    background: white;
-    padding: 20px;
-    padding-bottom: 60px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    transform: rotate(-3deg);
-    transition: transform 0.3s;
-}
+        /* Адаптивный дизайн */
+        @media (max-width: 1024px) {
+            main {
+                padding: var(--spacing-xl) var(--spacing-lg);
+            }
 
-.polaroid:hover {
-    transform: rotate(-1deg) scale(1.02);
-}
+            .hero-background svg {
+                width: 400px;
+            }
 
-.polaroid-inner {
-    width: 450px;
-    height: 450px;
-    background: #2196f3;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
-}
+            h1 {
+                font-size: 2.625rem;
+            }
 
-@media (max-width: 1024px) {
-    main {
-        flex-direction: column;
-        padding: 50px 40px;
-    }
+            nav {
+                gap: var(--spacing-md);
+            }
+        }
 
-    h1 {
-        font-size: 42px;
-    }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                padding: var(--spacing-md);
+            }
 
-    .polaroid-inner {
-        width: 350px;
-        height: 350px;
-    }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: var(--spacing-sm);
+            }
 
-    nav {
-        gap: 25px;
-    }
-}
+            nav a {
+                font-size: var(--font-size-sm);
+            }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
+            main {
+                padding: var(--spacing-md);
+                text-align: center;
+            }
 
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
+            .hero-background {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                opacity: 0.4;
+            }
 
-    nav a {
-        font-size: 16px;
-    }
+            .hero-background svg {
+                width: 300px;
+                max-width: 80vw;
+            }
 
-    h1 {
-        font-size: 32px;
-    }
+            h1 {
+                font-size: 2rem;
+            }
 
-    .description {
-        font-size: 18px;
-    }
+            .hero-description {
+                font-size: var(--font-size-md);
+            }
+        }
 
-    .polaroid-inner {
-        width: 280px;
-        height: 280px;
-    }
-}
+        @media (max-width: 480px) {
+            .hero-background svg {
+                width: 250px;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-description {
+                font-size: var(--font-size-sm);
+            }
+            
+            .cta-button {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: var(--font-size-md);
+            }
+        }
