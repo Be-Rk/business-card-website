@@ -7,15 +7,11 @@
 
         :root {
             --primary-color: #0065B3;
-            --primary-light: #1e88e5;
             --secondary-color: #FFF7EA;
-            --background-color: #e8d5c4;
+            --background-color: #FDF0DA;
             --text-dark: #1a1a1a;
             --text-medium: #5a5a5a;
             --white: #ffffff;
-            --shadow-light: rgba(30, 136, 229, 0.3);
-            --shadow-medium: rgba(30, 136, 229, 0.4);
-            --shadow-dark: rgba(30, 136, 229, 0.5);
             --border-radius: 0;
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -35,6 +31,9 @@
             --line-height-normal: 1.5;
             --line-height-tight: 1.2;
             --transition: all 0.3s ease;
+
+            --shadow-button: 4px 4px 0px rgba(0, 0, 0, 0.39);
+            --shadow-button-hover: 6px 6px 0px rgba(0, 0, 0, 0.8)
         }
 
         body {
@@ -53,7 +52,7 @@
             justify-content: space-between;
             align-items: center;
             padding: var(--spacing-lg) var(--spacing-xl);
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: var(--background-color);
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 10;
@@ -86,7 +85,7 @@
 
         nav a:hover,
         nav a:focus {
-            color: var(--primary-light);
+            color: var(--primary-color);
             outline: none;
         }
 
@@ -150,7 +149,7 @@
             font-weight: var(--font-weight-bold);
             text-decoration: none;
             margin-top: var(--spacing-md);
-            box-shadow: 0 8px 25px var(--shadow-medium), 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-button);
             transition: var(--transition);
             border: none;
             cursor: pointer;
@@ -159,7 +158,7 @@
         .cta-button:hover,
         .cta-button:focus {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px var(--shadow-dark), 0 6px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-button-hover);
             outline: none;
         }
 
@@ -233,15 +232,15 @@
             .hero-background svg {
                 width: 250px;
             }
-            
+
             h1 {
                 font-size: 1.75rem;
             }
-            
+
             .hero-description {
                 font-size: var(--font-size-sm);
             }
-            
+
             .cta-button {
                 padding: var(--spacing-sm) var(--spacing-md);
                 font-size: var(--font-size-md);
